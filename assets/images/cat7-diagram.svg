@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="purJacket" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#5b21b6"/>
+    </linearGradient>
+    <linearGradient id="shieldBraid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="400" fill="#090d16" rx="12"/>
+
+  <!-- Stepped Peeling Cat.7 S/FTP Anatomy -->
+  <!-- Layer 1: Ruggedized Purple PUR Jacket -->
+  <path d="M 40 130 L 150 130 L 150 270 L 40 270 Z" fill="url(#purJacket)" stroke="#a78bfa" stroke-width="2"/>
+  <text x="50" y="160" fill="#ffffff" font-family="monospace" font-size="11" font-weight="bold">PUR JACKET</text>
+  <text x="50" y="175" fill="#c4b5fd" font-family="sans-serif" font-size="9">Kháng dầu máy CNC</text>
+
+  <!-- Layer 2: Tinned Copper Wire Braid 85% -->
+  <path d="M 150 145 L 230 145 L 230 255 L 150 255 Z" fill="url(#shieldBraid)" stroke="#94a3b8" stroke-width="1.5"/>
+  <!-- Braid cross-hatching pattern -->
+  <line x1="160" y1="145" x2="220" y2="255" stroke="#334155" stroke-width="2"/>
+  <line x1="180" y1="145" x2="230" y2="235" stroke="#334155" stroke-width="2"/>
+  <line x1="220" y1="145" x2="160" y2="255" stroke="#334155" stroke-width="2"/>
+  <line x1="230" y1="165" x2="180" y2="255" stroke="#334155" stroke-width="2"/>
+
+  <!-- Grounding Drain Wire -->
+  <line x1="150" y1="148" x2="245" y2="148" stroke="#cbd5e1" stroke-width="3"/>
+
+  <!-- Layer 3: Individual Al-Mylar Pair Foils -->
+  <rect x="230" y="160" width="80" height="35" rx="4" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <text x="240" y="182" fill="#0f172a" font-family="monospace" font-size="9" font-weight="bold">PAIR 1 FOIL</text>
+
+  <rect x="230" y="205" width="80" height="35" rx="4" fill="#f59e0b" stroke="#d97706" stroke-width="1"/>
+  <text x="240" y="227" fill="#0f172a" font-family="monospace" font-size="9" font-weight="bold">PAIR 2 FOIL</text>
+
+  <!-- Layer 4: Twisted Pair 23 AWG Solid Copper Conductors -->
+  <!-- Pair 1 Twisted Wires (Blue & White/Blue) -->
+  <path d="M 310 170 Q 340 160 370 175 Q 400 190 430 175 Q 460 160 480 170" fill="none" stroke="#2563eb" stroke-width="4"/>
+  <path d="M 310 185 Q 340 195 370 180 Q 400 165 430 180 Q 460 195 480 185" fill="none" stroke="#f8fafc" stroke-width="4"/>
+
+  <!-- Pair 2 Twisted Wires (Orange & White/Orange) -->
+  <path d="M 310 215 Q 340 205 370 220 Q 400 235 430 220 Q 460 205 480 215" fill="none" stroke="#f97316" stroke-width="4"/>
+  <path d="M 310 230 Q 340 240 370 225 Q 400 210 430 225 Q 460 240 480 230" fill="none" stroke="#f8fafc" stroke-width="4"/>
+
+  <!-- Annotation Callouts -->
+  <line x1="190" y1="145" x2="190" y2="70" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="140" y="60" fill="#cbd5e1" font-family="monospace" font-size="11" font-weight="bold">OVERALL BRAID (LƯỚI ĐỒNG 85%)</text>
+
+  <line x1="270" y1="160" x2="270" y2="90" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="250" y="80" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">AL-FOIL BỌC TỪNG ĐÔI (ZERO NEXT)</text>
+
+  <line x1="420" y1="175" x2="420" y2="330" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="320" y="350" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">600 MHz BANDWIDTH (10Gbps)</text>
+
+  <!-- Title Badge -->
+  <rect x="20" y="20" width="180" height="26" rx="4" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6"/>
+  <text x="28" y="37" fill="#8b5cf6" font-family="sans-serif" font-size="11" font-weight="bold">ISO/IEC 11801 CLASS F</text>
+</svg>
