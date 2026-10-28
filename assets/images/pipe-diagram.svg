@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pipeSteel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="30%" stop-color="#94a3b8"/>
+      <stop offset="70%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="400" fill="#090d16" rx="12"/>
+
+  <!-- Cylinder Perspective Pipe -->
+  <!-- Outer Body -->
+  <path d="M 120 120 L 380 120 C 430 120, 430 260, 380 260 L 120 260 C 70 260, 70 120, 120 120 Z" fill="url(#pipeSteel)" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Left Pipe Cross-Section Bore -->
+  <ellipse cx="120" cy="190" rx="35" ry="70" fill="#0f172a" stroke="#cbd5e1" stroke-width="2"/>
+  <!-- Hollow Inner Bore -->
+  <ellipse cx="120" cy="190" rx="26" ry="54" fill="#030712" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- Wall Thickness indicator (t = SCH40) -->
+  <line x1="85" y1="190" x2="94" y2="190" stroke="#00f0ff" stroke-width="2"/>
+  <text x="60" y="215" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">THICKNESS t</text>
+  <text x="60" y="230" fill="#94a3b8" font-family="sans-serif" font-size="10">(SCH40/80)</text>
+
+  <!-- Outside Diameter D line -->
+  <line x1="120" y1="120" x2="120" y2="260" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="130" y="195" fill="#f59e0b" font-family="monospace" font-size="11" font-weight="bold">OD (D)</text>
+
+  <!-- Right Beveled End for Butt-Welding (37.5 deg) -->
+  <ellipse cx="380" cy="190" rx="35" ry="70" fill="none" stroke="#64748b" stroke-width="2"/>
+  <polygon points="380,120 405,120 380,126" fill="#f87171"/>
+  <text x="350" y="105" fill="#f87171" font-family="monospace" font-size="10" font-weight="bold">37.5° BEVEL END</text>
+
+  <!-- Seamless micro-structure stamp -->
+  <rect x="200" y="170" width="160" height="40" rx="4" fill="#090d16" fill-opacity="0.8" stroke="#38bdf8"/>
+  <text x="210" y="188" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold">ASTM A106 Gr.B SEAMLESS</text>
+  <text x="210" y="202" fill="#94a3b8" font-family="sans-serif" font-size="9">HYDRO TEST 20 MPa • HEAT #84729</text>
+
+  <!-- Barlow Formula Callout -->
+  <rect x="60" y="310" width="380" height="50" rx="6" fill="#1e293b" stroke="#475569"/>
+  <text x="80" y="332" fill="#ffffff" font-family="monospace" font-size="12" font-weight="bold">BARLOW'S BURST FORMULA: P = (2 · S · t) / D</text>
+  <text x="80" y="348" fill="#94a3b8" font-family="sans-serif" font-size="10">Minimum Yield S = 240 MPa (35,000 psi) • Zero longitudinal weld seam weakness</text>
+
+  <!-- Title Badge -->
+  <rect x="20" y="20" width="180" height="26" rx="4" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8"/>
+  <text x="28" y="37" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">ASTM A106 / ASME B36.10M</text>
+</svg>
