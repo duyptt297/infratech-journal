@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFRA-TECH JOURNAL | Tạp Chí Vật Tư & Cơ Sở Hạ Tầng Kỹ Thuật Công Nghiệp</title>
+  <meta name="description" content="Tạp chí khoa học kỹ thuật thực chiến song ngữ Anh - Việt. Tra cứu vật tư hạ tầng, MEP, PCCC, mạng công nghiệp, mô hình 3D tương tác và tiêu chuẩn ASTM, NFPA, IEC.">
+  <meta name="keywords" content="vật tư công nghiệp, MEP, PCCC, Sprinkler, Busway, cáp chống cháy, van cổng, ASTM A106, panel PIR, Three.js, tạp chí kỹ thuật">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="INFRA-TECH JOURNAL - Tạp Chí Khoa Học Kỹ Thuật Song Ngữ">
+  <meta property="og:description" content="Tra cứu giải phẫu 3D, nguyên lý nhiệt động lực học và điểm mạnh điểm yếu vật tư công nghiệp MEP & PCCC.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+
+  <!-- Three.js CDN with Local Canvas Fallback -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand-box">
+        <div class="brand-logo-icon">ITJ</div>
+        <div class="brand-text-col">
+          <span class="brand-title">INFRA-TECH</span>
+          <span class="brand-sub">JOURNAL • MEP &amp; INFRA</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#materials" class="nav-link" data-i18n="nav.materials">Tra Cứu Vật Tư</a></li>
+          <li><a href="#viewer3d" class="nav-link" data-i18n="nav.viewer3d">Mô Hình 3D</a></li>
+          <li><a href="#comparator" class="nav-link" data-i18n="nav.comparator">So Sánh Đối Đầu</a></li>
+          <li><a href="#matrix" class="nav-link" data-i18n="nav.matrix">Bộ Chọn Giải Pháp</a></li>
+          <li><a href="#calculators" class="nav-link" data-i18n="nav.calculator">Công Cụ Tính</a></li>
+          <li><a href="#quiz" class="nav-link" data-i18n="nav.quiz">Thử Thách Kỹ Sư</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="btn-toggle-lang" class="btn-lang" title="Chuyển đổi ngôn ngữ / Switch Language">VI / EN</button>
+        <button id="btn-toggle-theme" class="btn-icon" title="Đổi giao diện / Toggle Theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-badge-wrap">
+        <span class="hero-badge-dot"></span>
+        <span class="hero-badge-text" data-i18n="hero.badge">GEN-Z INDUSTRIAL ENGINEERING HUB • SONG NGỮ ANH - VIỆT</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span data-i18n="hero.title">Giải Mã Bí Mật Vật Tư Kỹ Thuật Công Nghiệp</span><br>
+        <span class="highlight" data-i18n="hero.titleHighlight">Chính Xác, Trực Quan &amp; Đột Phá</span>
+      </h1>
+
+      <p class="hero-desc" data-i18n="hero.description">
+        Khám phá cấu trúc giải phẫu 3D, nguyên lý nhiệt động lực học, điểm mạnh &amp; tử huyệt của từng loại vật tư từ hạ tầng xây dựng, điện động lực, đường ống MEP, mạng công nghiệp đến phòng cháy chữa cháy.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#materials" class="btn btn-primary" data-i18n="hero.btnExplore">Khám Phá Vật Tư Ngay</a>
+        <a href="#viewer3d" class="btn btn-outline" data-i18n="hero.btnViewer3D">Mở Trình Xem 3D 🧊</a>
+        <a href="#comparator" class="btn btn-orange" data-i18n="hero.btnComparator">So Sánh Vật Tư ⚔️</a>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="hero-stats-grid">
+        <div class="stat-item">
+          <span class="stat-val">12+</span>
+          <span class="stat-label" data-i18n="hero.stat1">Vật tư &amp; Linh kiện chuẩn hóa</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val">100%</span>
+          <span class="stat-label" data-i18n="hero.stat2">Tiêu chuẩn ASTM/NFPA/IEC</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val">4x</span>
+          <span class="stat-label" data-i18n="hero.stat3">Mô hình 3D bóc tách mặt cắt</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val">0.02</span>
+          <span class="stat-label" data-i18n="hero.stat4">Độ chính xác khoa học &amp; thực chiến</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Materials Directory Section -->
+  <section id="materials" class="container" style="padding-top: 40px;">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="nav.materials">TRA CỨU VẬT TƯ CHUYÊN SÂU</span>
+      <h2 class="section-title">Kho Dữ Liệu Vật Tư &amp; Linh Kiện MEP Toàn Diện</h2>
+      <p class="section-sub">Tra cứu thông số kỹ thuật, mác vật liệu, giới hạn chịu nhiệt và bài học hiện trường.</p>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div id="categories-bar" class="categories-bar"></div>
+
+    <!-- Live Search Input -->
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" class="search-input-box" placeholder="Tìm kiếm vật tư, mác thép, tiêu chuẩn ASTM, NFPA, IEC (vd: Sprinkler, Busway, A106, 950°C)..." data-i18n-placeholder="search.placeholder">
+    </div>
+
+    <div id="search-results-count" style="margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan-glow);"></div>
+
+    <!-- Materials Grid -->
+    <div id="materials-grid" class="materials-grid"></div>
+  </section>
+
+  <!-- 3D Interactive Engineering Lab Section -->
+  <section id="viewer3d" class="viewer3d-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">3D INTERACTIVE LAB</span>
+        <h2 class="section-title" data-i18n="viewer3dSection.title">Phòng Thí Nghiệm 3D Tương Tác</h2>
+        <p class="section-sub" data-i18n="viewer3dSection.subTitle">Xoay, phóng to, bóc tách mặt cắt và kiểm tra từng chi tiết cấu thành bên trong</p>
+      </div>
+
+      <div class="viewer3d-layout">
+        <!-- 3D Canvas Box -->
+        <div class="viewer3d-canvas-wrap">
+          <div id="viewer3d-canvas-container" class="viewer3d-canvas"></div>
+
+          <!-- Bottom Floating Controls -->
+          <div class="viewer3d-toolbar">
+            <div class="viewer3d-models-bar">
+              <button class="model-pill active" data-model-type="gate-valve">Van Cổng (Valve)</button>
+              <button class="model-pill" data-model-type="fire-cable">Cáp Chống Cháy (Cable)</button>
+              <button class="model-pill" data-model-type="sprinkler">Đầu Phun (Sprinkler)</button>
+              <button class="model-pill" data-model-type="busway">Thanh Dẫn (Busway)</button>
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <button id="btn-3d-rotate" class="btn btn-sm btn-outline" data-i18n="viewer3dSection.btnRotate">Tự Xoay</button>
+              <button id="btn-3d-explode" class="btn btn-sm btn-orange" data-i18n="viewer3dSection.btnExplode">Bóc Tách (Explode)</button>
+              <button id="btn-3d-reset" class="btn btn-sm btn-outline" data-i18n="viewer3dSection.btnReset">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspots & Anatomical Legend -->
+        <div class="viewer3d-side-panel">
+          <div class="hotspots-panel">
+            <h4 style="margin-bottom: 14px; font-size: 1rem; color: var(--cyan-glow);" data-i18n="viewer3dSection.hotspotsTitle">
+              Chi Tiết Điểm Nóng Kỹ Thuật
+            </h4>
+            <div id="hotspots-list"></div>
+          </div>
+
+          <div style="background: var(--bg-tertiary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); font-size: 0.82rem; color: var(--text-dim); line-height: 1.6;">
+            💡 <strong>Mẹo Tương Tác:</strong> Dùng chuột trái (hoặc 1 ngón tay trên điện thoại) kéo để xoay 360 độ. Cuộn con lăn để phóng to kiểm tra ren ốc hoặc lớp băng Mica.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Side-by-Side Comparator Section -->
+  <section id="comparator" class="comparator-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ENGINEERING ARENA</span>
+        <h2 class="section-title" data-i18n="comparatorSection.title">Đấu Trường Kỹ Thuật (Side-by-Side Comparator)</h2>
+        <p class="section-sub" data-i18n="comparatorSection.subTitle">So sánh trực diện 2 vật tư kỹ thuật để đưa ra quyết định thiết kế tối ưu nhất</p>
+      </div>
+
+      <!-- Preset Pills -->
+      <div id="comparator-presets" class="preset-pills-bar"></div>
+
+      <!-- Custom Selectors -->
+      <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 24px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 220px;">
+          <label style="display: block; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 4px;" data-i18n="comparatorSection.selectA">Vật Tư A:</label>
+          <select id="comparator-select-a" class="matrix-select"></select>
+        </div>
+        <div style="font-weight: 900; color: var(--orange-safety); font-size: 1.2rem;">VS</div>
+        <div style="flex: 1; min-width: 220px;">
+          <label style="display: block; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 4px;" data-i18n="comparatorSection.selectB">Vật Tư B:</label>
+          <select id="comparator-select-b" class="matrix-select"></select>
+        </div>
+        <button id="btn-run-compare" class="btn btn-primary" style="margin-top: 18px;" data-i18n="comparatorSection.btnCompare">Đối Đầu Ngay ⚔️</button>
+      </div>
+
+      <!-- Dynamic Comparison Content -->
+      <div id="comparator-content"></div>
+    </div>
+  </section>
+
+  <!-- Decision Matrix (Scenario Selector) Section -->
+  <section id="matrix" class="matrix-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">SCENARIO DECISION ENGINE</span>
+        <h2 class="section-title" data-i18n="matrixSection.title">Ma Trận Chọn Vật Tư Kỹ Thuật</h2>
+        <p class="section-sub" data-i18n="matrixSection.subTitle">Chọn điều kiện môi trường công trường để nhận khuyến cáo chuẩn xác</p>
+      </div>
+
+      <div class="matrix-controls-grid">
+        <div>
+          <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;" data-i18n="matrixSection.envLabel">1. Môi trường vận hành công xưởng:</label>
+          <select id="matrix-env-select" class="matrix-select">
+            <option value="chemical">Ăn mòn hóa chất, hơi axit, sương muối ven biển</option>
+            <option value="highTemp">Nhiệt độ cao, lò hơi, ống khói, hơi bão hòa</option>
+            <option value="fireCritical">PCCC khẩn cấp, chống cháy nổ an toàn sinh mạng</option>
+            <option value="cleanroom">Phòng sạch bán dẫn, dược phẩm GMP, F&amp;B</option>
+            <option value="normal">Nhà xưởng công nghiệp thông thường &amp; Riser máng cáp</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;" data-i18n="matrixSection.priorityLabel">2. Ưu tiên hàng đầu của dự án:</label>
+          <select id="matrix-priority-select" class="matrix-select">
+            <option value="safety">An toàn tối thượng &amp; Không gián đoạn sự cố</option>
+            <option value="cost">Tiết kiệm chi phí đầu tư ban đầu (Low Capex)</option>
+            <option value="speed">Thi công thần tốc &amp; Mở rộng linh hoạt (Fast Track)</option>
+            <option value="durability">Độ bền 25+ năm không cần bảo trì</option>
+          </select>
+        </div>
+
+        <button id="btn-run-matrix" class="btn btn-primary" data-i18n="matrixSection.btnRecommend">Phân Tích &amp; Đề Xuất ⚡</button>
+      </div>
+
+      <!-- Dynamic Matrix Results -->
+      <div id="matrix-results"></div>
+    </div>
+  </section>
+
+  <!-- Engineering Calculators Section -->
+  <section id="calculators" class="calculators-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ENGINEERING TOOLS</span>
+        <h2 class="section-title" data-i18n="calculatorSection.title">Bộ Công Cụ Tính Toán Kỹ Sư</h2>
+        <p class="section-sub" data-i18n="calculatorSection.subTitle">Tính toán lưu lượng PCCC, sụt áp cáp điện và áp suất nổ đường ống chuẩn xác</p>
+      </div>
+
+      <div class="calc-tabs">
+        <button class="calc-tab-btn active" data-calc="sprinkler" data-i18n="calculatorSection.sprinklerTab">Lưu Lượng Đầu Phun Sprinkler</button>
+        <button class="calc-tab-btn" data-calc="pipe" data-i18n="calculatorSection.pipeTab">Áp Suất Giới Hạn Ống Thép (Barlow)</button>
+        <button class="calc-tab-btn" data-calc="cable" data-i18n="calculatorSection.cableTab">Độ Sụt Áp Tuyến Cáp Điện</button>
+      </div>
+
+      <div id="calculators-container">
+        <!-- 1. Sprinkler Calculator -->
+        <div id="calc-sprinkler" class="calc-card">
+          <div class="calc-inputs-col">
+            <h4 style="margin-bottom: 16px; color: var(--cyan-glow);">NFPA 13 Sprinkler Flow Calculator</h4>
+            <div class="calc-form-group">
+              <label data-i18n="calculatorSection.sprinkler.kFactor">Hệ số K-Factor của đầu phun:</label>
+              <select id="sprinkler-k" class="calc-input">
+                <option value="80">K = 5.6 US (80 metric) - Đầu phun 1/2" NPT thông dụng</option>
+                <option value="115">K = 8.0 US (115 metric) - Đầu phun 3/4" NPT lưu lượng lớn</option>
+                <option value="160">K = 11.2 US (160 metric) - ELO Extra Large Orifice</option>
+              </select>
+            </div>
+            <div class="calc-form-group">
+              <label data-i18n="calculatorSection.sprinkler.pressure">Áp suất thủy lực tại đầu phun (bar):</label>
+              <input type="number" id="sprinkler-p" class="calc-input" value="1.5" min="0.5" max="12" step="0.1">
+            </div>
+            <div class="calc-form-group">
+              <label>Số lượng đầu phun tính toán đồng thời:</label>
+              <input type="number" id="sprinkler-heads" class="calc-input" value="4" min="1" max="30">
+            </div>
+            <div class="calc-form-group">
+              <label>Thời gian duy trì chữa cháy (phút):</label>
+              <input type="number" id="sprinkler-duration" class="calc-input" value="60" min="30" max="120">
+            </div>
+            <button id="btn-calc-sprinkler" class="btn btn-primary" data-i18n="calculatorSection.sprinkler.btnCalculate">Tính Lưu Lượng Q</button>
+          </div>
+          <div id="sprinkler-calc-result" class="calc-results-col">
+            <div class="calc-result-card" style="text-align: center; color: var(--text-dim); padding: 40px 20px;">
+              Nhấn nút "Tính Lưu Lượng Q" để xem kết quả tính toán chi tiết.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Pipe Calculator -->
+        <div id="calc-pipe" class="calc-card" style="display: none;">
+          <div class="calc-inputs-col">
+            <h4 style="margin-bottom: 16px; color: var(--cyan-glow);">Barlow Formula Pipe Bursting Pressure</h4>
+            <div class="calc-form-group">
+              <label data-i18n="calculatorSection.pipe.diameter">Đường kính ngoài ống D (mm):</label>
+              <input type="number" id="pipe-d" class="calc-input" value="114.3" step="0.1">
+            </div>
+            <div class="calc-form-group">
+              <label data-i18n="calculatorSection.pipe.wallThickness">Độ dày thành ống t (mm):</label>
+              <input type="number" id="pipe-t" class="calc-input" value="6.02" step="0.01">
+            </div>
+            <div class="calc-form-group">
+              <label data-i18n="calculatorSection.pipe.yieldStrength">Giới hạn chảy vật liệu S (MPa):</label>
+              <input type="number" id="pipe-s" class="calc-input" value="240">
+            </div>
+            <div class="calc-form-group">
+              <label>Hệ số an toàn (Safety Factor SF):</label>
+              <input type="number" id="pipe-sf" class="calc-input" value="2.5" step="0.1">
+            </div>
+            <button id="btn-calc-pipe" class="btn btn-primary" data-i18n="calculatorSection.pipe.btnCalculate">Tính Áp Suất Chịu Đựng</button>
+          </div>
+          <div id="pipe-calc-result" class="calc-results-col">
+            <div class="calc-result-card" style="text-align: center; color: var(--text-dim); padding: 40px 20px;">
+              Nhấn nút "Tính Áp Suất Chịu Đựng" để kiểm tra đường ống.
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Cable Voltage Drop Calculator -->
+        <div id="calc-cable" class="calc-card" style="display: none;">
+          <div class="calc-inputs-col">
+            <h4 style="margin-bottom: 16px; color: var(--cyan-glow);">IEC 60364-5-52 Cable Voltage Drop</h4>
+            <div class="calc-form-group">
+              <label>Dòng điện tải định mức I (Ampe):</label>
+              <input type="number" id="cable-i" class="calc-input" value="200" step="5">
+            </div>
+            <div class="calc-form-group">
+              <label>Chiều dài tuyến cáp L (mét):</label>
+              <input type="number" id="cable-l" class="calc-input" value="120" step="5">
+            </div>
+            <div class="calc-form-group">
+              <label>Tiết diện ruột đồng (mm²):</label>
+              <select id="cable-size" class="calc-input">
+                <option value="35">35 mm²</option>
+                <option value="50">50 mm²</option>
+                <option value="70">70 mm²</option>
+                <option value="95" selected>95 mm²</option>
+                <option value="120">120 mm²</option>
+                <option value="150">150 mm²</option>
+                <option value="185">185 mm²</option>
+                <option value="240">240 mm²</option>
+                <option value="300">300 mm²</option>
+              </select>
+            </div>
+            <button id="btn-calc-cable" class="btn btn-primary">Tính Độ Sụt Áp ΔV</button>
+          </div>
+          <div id="cable-calc-result" class="calc-results-col">
+            <div class="calc-result-card" style="text-align: center; color: var(--text-dim); padding: 40px 20px;">
+              Nhấn nút "Tính Độ Sụt Áp ΔV" để đánh giá tuyến cáp.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gen Z Engineering Quiz Challenge Section -->
+  <section id="quiz" class="quiz-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag" data-i18n="quizSection.badge">GEN-Z ENGINEERING CHALLENGE</span>
+        <h2 class="section-title" data-i18n="quizSection.title">Đấu Trí Kỹ Sư Thực Chiến (Quiz Mode)</h2>
+        <p class="section-sub" style="margin: 0 auto;" data-i18n="quizSection.subTitle">Vượt qua các câu hỏi hóc búa, nhận huy hiệu danh dự Kỹ Sư Trưởng</p>
+      </div>
+
+      <div id="quiz-card-container"></div>
+    </div>
+  </section>
+
+  <!-- Technical Spec & 3D Detail Modal -->
+  <div id="material-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <span id="modal-category" class="modal-badge"></span>
+          <h3 id="modal-title" class="modal-title"></h3>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button id="modal-bookmark-btn" class="btn btn-sm btn-outline">Lưu</button>
+          <button id="modal-close-btn" class="modal-close-btn" title="Đóng modal">&times;</button>
+        </div>
+      </div>
+
+      <!-- Modal Tabs -->
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" data-tab="overview" data-i18n="detailModal.tabOverview">Tổng Quan &amp; Cấu Tạo</button>
+        <button class="modal-tab-btn" data-tab="specs" data-i18n="detailModal.tabSpecs">Thông Số Kỹ Thuật</button>
+        <button class="modal-tab-btn" data-tab="proscons" data-i18n="detailModal.tabProsCons">Phân Tích Ưu - Nhược Điểm</button>
+        <button class="modal-tab-btn" data-tab="failures" data-i18n="detailModal.tabFailures">Sự Cố Thực Tế &amp; Khắc Phục</button>
+        <button class="modal-tab-btn" data-tab="standards" data-i18n="detailModal.tabStandards">Tiêu Chuẩn Viện Dẫn</button>
+        <button class="modal-tab-btn" data-tab="media" data-i18n="detailModal.tabMedia">Mô Hình 3D &amp; Sơ Đồ</button>
+      </div>
+
+      <div class="modal-body">
+        <div id="pane-overview" class="modal-tab-pane active"></div>
+        <div id="pane-specs" class="modal-tab-pane"></div>
+        <div id="pane-proscons" class="modal-tab-pane"></div>
+        <div id="pane-failures" class="modal-tab-pane"></div>
+        <div id="pane-standards" class="modal-tab-pane"></div>
+        <div id="pane-media" class="modal-tab-pane"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-box" style="margin-bottom: 16px;">
+            <div class="brand-logo-icon">ITJ</div>
+            <div class="brand-text-col">
+              <span class="brand-title">INFRA-TECH JOURNAL</span>
+              <span class="brand-sub">BILINGUAL INDUSTRIAL MAGAZINE</span>
+            </div>
+          </div>
+          <p style="font-size: 0.92rem; line-height: 1.6; max-width: 440px;" data-i18n="footer.about">
+            Tạp chí CSHT &amp; MEP là nền tảng học thuật trực quan dành cho sinh viên kỹ thuật, kỹ sư cơ điện MEP, giám sát PCCC và nhà thầu xây dựng công nghiệp.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 14px; font-size: 0.95rem; color: var(--text-main);" data-i18n="footer.quickLinks">Liên Kết Nhanh</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            <li><a href="#materials" style="color: var(--text-muted); text-decoration: none;">Tra Cứu Vật Tư Kỹ Thuật</a></li>
+            <li><a href="#viewer3d" style="color: var(--text-muted); text-decoration: none;">Phòng Thí Nghiệm 3D</a></li>
+            <li><a href="#comparator" style="color: var(--text-muted); text-decoration: none;">Đấu Trường So Sánh</a></li>
+            <li><a href="#matrix" style="color: var(--text-muted); text-decoration: none;">Ma Trận Ra Quyết Định</a></li>
+            <li><a href="#calculators" style="color: var(--text-muted); text-decoration: none;">Công Cụ Kỹ Thuật</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 14px; font-size: 0.95rem; color: var(--text-main);">Tiêu Chuẩn Học Thuật</h4>
+          <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-dim);" data-i18n="footer.academicNotice">
+            Mọi dữ liệu kỹ thuật được chuẩn hóa đối chiếu theo ASME, ASTM, NFPA, IEC và TCVN.
+          </p>
+          <div style="margin-top: 14px; display: flex; gap: 10px;">
+            <span class="tag-pill">NFPA 13</span>
+            <span class="tag-pill">ASME B16.34</span>
+            <span class="tag-pill">IEC 60331</span>
+            <span class="tag-pill">TCVN</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 INFRA-TECH JOURNAL. Phát triển cho cộng đồng Kỹ Sư Việt Nam &amp; Quốc Tế. Mã nguồn mở trên GitHub.</span>
+        <span>Version 2.0.0 • Production Ready</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Loading Pipeline -->
+  <script src="js/utils/storage.js"></script>
+  <script src="js/i18n/vi.js"></script>
+  <script src="js/i18n/en.js"></script>
+  <script src="js/data/categories.js"></script>
+  <script src="js/data/materials.js"></script>
+  <script src="js/data/comparisons.js"></script>
+  <script src="js/data/quiz.js"></script>
+  <script src="js/components/viewer3d.js"></script>
+  <script src="js/components/comparator.js"></script>
+  <script src="js/components/matrix.js"></script>
+  <script src="js/components/calculator.js"></script>
+  <script src="js/components/quizEngine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
