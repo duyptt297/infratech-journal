@@ -1,0 +1,107 @@
+/* ==========================================================================
+   INFRA-TECH JOURNAL - RESPONSIVE STYLESHEET
+   Mobile & Tablet Optimizations
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .viewer3d-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer3d-canvas-wrap {
+    height: 400px;
+  }
+
+  .comp-analytics-section {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-card {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Mobile menu can be toggled */
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .materials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .matrix-controls-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .matrix-output-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pros-cons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-container {
+    max-height: 95vh;
+    border-radius: var(--radius-sm);
+  }
+
+  .modal-header {
+    padding: 16px 20px;
+  }
+
+  .modal-body {
+    padding: 18px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .viewer3d-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .viewer3d-models-bar {
+    overflow-x: auto;
+  }
+}
